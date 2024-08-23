@@ -1,0 +1,364 @@
+/*
+ * Author       : subhantestcreator
+ * Generated on : 08-Feb-2023 12:35:46
+ * Version      : 1.0
+ */
+ application "Search_Interface"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+ 	time format = "24-hr"
+ 	section Products
+	{
+		icon = "shopping-gift"
+		form Products
+		{
+			success message = "Product Added Successfully"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Category
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Car","Bike","Bicycle"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Product_Name
+			(
+    			type = text
+				displayname = "Product Name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Description
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "shopping-gift"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		default list All_Products
+		{
+			displayName = "All Products"
+			show all rows from Products    
+			(
+				Product_Name as "Product Name"
+				Description
+				Category
+				ID
+			)
+			options
+			(
+				icon = "travel-world"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+						fields
+						(
+							Product_Name as "Product Name"
+							Description
+							Category
+							ID
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+						fields
+						(
+							Product_Name as "Product Name"
+							Description
+							Category
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Search_Interface
+	{
+		displayname= "Search Interface"
+		icon = "tech-2-l-search"
+				 page Search_Interface 
+	 	 { 
+ 	 	 displayname = "Search Interface"
+
+ 	 	 icon = "tech-2-l-search" 
+	 	 Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width=\"100%\"\n   \t>\n\t<form \n\telementName=\"Form\"\n\n\tappLinkName = 'thisapp'\n\tlinkName = 'Search_Stateless_Form'\n\theightType = 'auto'\n\turlType = 'none'\n\tzc_Header = 'false'\n\/> \n<\/column>\n<\/row><row>\n\t<column\n   \t\t width=\"100%\"\n   \t>\n\t<dsp id='html_snippet' elementName=\"HTML Snippet\"\n bgColor=\"#FFFFFF\" \n>\n\t<![CDATA[htmlpage html_snippet()\ncontent\n&lt;%{\n\t%&gt;\n&lt;div&gt;\n    &lt;b&gt;\n        &lt;span class=&quot;font&quot; style=&quot;font-family:ComicNeue, sans-serif&quot;&gt;\n            &lt;span class=&quot;colour&quot; style=&quot;color:rgb(102, 0, 0)&quot;&gt;\n                &lt;span class=&quot;size&quot; style=&quot;font-size:24px&quot;&gt;\n                    Your search results will appear here. &amp;nbsp;\n                    &lt;br&gt;\n                &lt;\/span&gt;\n            &lt;\/span&gt;\n        &lt;\/span&gt;\n    &lt;\/b&gt;\n&lt;\/div&gt;\n&lt;div&gt;\n    &lt;b&gt;\n        &lt;span class=&quot;font&quot; style=&quot;font-family:ComicNeue, sans-serif&quot;&gt;\n            &lt;span class=&quot;colour&quot; style=&quot;color:rgb(102, 0, 0)&quot;&gt;\n                &lt;span class=&quot;size&quot; style=&quot;font-size:24px&quot;&gt;\n                    &lt;br&gt;\n                &lt;\/span&gt;\n            &lt;\/span&gt;\n        &lt;\/span&gt;\n    &lt;\/b&gt;\n&lt;\/div&gt;\n&lt;div&gt;\n    &lt;b&gt;\n        &lt;span class=&quot;font&quot; style=&quot;font-family:ComicNeue, sans-serif&quot;&gt;\n            &lt;span class=&quot;colour&quot; style=&quot;color:rgb(102, 0, 0)&quot;&gt;\n                &lt;span class=&quot;size&quot; style=&quot;font-size:24px&quot;&gt;\n                    &amp;nbsp;|\n                &lt;\/span&gt;\n            &lt;\/span&gt;\n        &lt;\/span&gt;\n    &lt;\/b&gt;\n    &lt;br&gt;\n&lt;\/div&gt;\n&lt;div&gt;\n    &lt;b&gt;\n        &lt;span class=&quot;font&quot; style=&quot;font-family:ComicNeue, sans-serif&quot;&gt;\n            &lt;span class=&quot;colour&quot; style=&quot;color:rgb(102, 0, 0)&quot;&gt;\n                &lt;span class=&quot;size&quot; style=&quot;font-size:24px&quot;&gt;\n                    &amp;nbsp;|\n                &lt;\/span&gt;\n                &lt;span class=&quot;size&quot; style=&quot;font-size:24px&quot;&gt;\n                    &lt;br&gt;\n                &lt;\/span&gt;\n            &lt;\/span&gt;\n        &lt;\/span&gt;\n    &lt;\/b&gt;\n&lt;\/div&gt;\n&lt;div&gt;\n    &lt;b&gt;\n        &lt;span class=&quot;font&quot; style=&quot;font-family:ComicNeue, sans-serif&quot;&gt;\n            &lt;span class=&quot;colour&quot; style=&quot;color:rgb(102, 0, 0)&quot;&gt;\n                &lt;span class=&quot;size&quot; style=&quot;font-size:24px&quot;&gt;\n                    &amp;nbsp;|\n                &lt;\/span&gt;\n                &lt;span class=&quot;size&quot; style=&quot;font-size:24px&quot;&gt;\n                    &lt;br&gt;\n                &lt;\/span&gt;\n            &lt;\/span&gt;\n        &lt;\/span&gt;\n    &lt;\/b&gt;\n&lt;\/div&gt;\n&lt;div&gt;\n    &lt;b&gt;\n        &lt;span class=&quot;font&quot; style=&quot;font-family:ComicNeue, sans-serif&quot;&gt;\n            &lt;span class=&quot;colour&quot; style=&quot;color:rgb(102, 0, 0)&quot;&gt;\n                &lt;span class=&quot;size&quot; style=&quot;font-size:24px&quot;&gt;\n                    V\n                &lt;\/span&gt;\n            &lt;\/span&gt;\n        &lt;\/span&gt;\n    &lt;\/b&gt;\n    &lt;br&gt;\n&lt;\/div&gt;\n&lt;iframe height=&apos;500px&apos; width=&apos;100%&apos; frameborder=&apos;0&apos; name =&quot;iframe1&quot; allowTransparency=&apos;true&apos; scrolling=&apos;auto&apos; src=&apos;&apos;&gt;&lt;\/iframe&gt;\n&lt;%\n\n}%&gt;]]>\n<\/dsp>\n<\/column>\n<\/row>\n<\/layout>\n<\/zml>" 
+ 	 	}
+	}
+	section Search_Stateless_Form
+	{
+		displayname= "Search Stateless Form"
+		form Search_Stateless_Form
+		{
+			displayname = "Search Stateless Form"
+			store data in zc = false
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			plain
+			(
+    			type = plaintext
+				value = "<div> <b><span class=\"font\" style=\"font-family: ComicNeue, sans-serif\"><span class=\"colour\" style=\"color: rgb(102, 0, 0)\"><span class=\"size\" style=\"font-size: 24px\">Enter your search key here&nbsp;</span><span class=\"size\" style=\"font-size: 24px\"><br /></span></span></span></b></div><div><b><span class=\"font\" style=\"font-family: ComicNeue, sans-serif\"><span class=\"colour\" style=\"color: rgb(102, 0, 0)\"><span class=\"size\" style=\"font-size: 24px\"><br /></span></span></span></b></div><div><b><span class=\"font\" style=\"font-family: ComicNeue, sans-serif\"><span class=\"colour\" style=\"color: rgb(102, 0, 0)\"><span class=\"size\" style=\"font-size: 24px\">&nbsp;|</span></span></span></b></div><div><b><span class=\"font\" style=\"font-family: ComicNeue, sans-serif\"><span class=\"colour\" style=\"color: rgb(102, 0, 0)\"><span class=\"size\" style=\"font-size: 24px\">&nbsp;|</span><span class=\"size\" style=\"font-size: 24px\"><br /></span></span></span></b></div><div><b><span class=\"font\" style=\"font-family: ComicNeue, sans-serif\"><span class=\"colour\" style=\"color: rgb(102, 0, 0)\"><span class=\"size\" style=\"font-size: 24px\">&nbsp;|</span><span class=\"size\" style=\"font-size: 24px\"><br /></span></span></span></b></div><div><b><span class=\"font\" style=\"font-family: ComicNeue, sans-serif\"><span class=\"colour\" style=\"color: rgb(102, 0, 0)\"><span class=\"size\" style=\"font-size: 24px\">V</span></span></span></b></div>"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Search
+			(
+    			type = text
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				Submit
+				(
+   					type = submit
+   					displayname = "Submit"
+				)
+				Reset
+				(
+   					type = reset
+   					displayname = "Reset"
+				)
+			}
+		}
+	}
+
+
+
+
+		workflow
+		{
+		form
+		{
+			Filter_report as "Filter report"
+			{
+				type =  form
+				form = Search_Stateless_Form
+				button = Submit
+				on click
+				{
+					actions 
+					{
+					on click
+					(
+						fet = Products[Product_Name.contains(input.Search) || Category.contains(input.Search) || Description.contains(input.Search)].ID.getAll();
+										openUrl("https://creatorapp.zohopublic.com" + zoho.appuri + "report-embed/All_Products/1AWQrPpeNks6AwkXWVjM1Fta8UEJCCTmhh08saAWWt0RAEbjGVWExxv6x4dXtxrngOy1dxmhkBbuYXa9mstfN4qO1v9fqwpmzpag?ID=[" + fet + "]","iframe","iframe1");
+					)
+					}
+				}
+			}
+		}
+
+
+
+
+
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+				}
+			}
+	}
+
+	customize
+	{
+		
+		layout = "tab"
+		color = "black"
+		base theme = "professional"
+		new theme = 1
+		icons = true
+		icons style = outline
+		font = "lato"
+		color options
+    	{
+        color = "1"
+    	}
+    	logo
+    	{
+        	preference = "company_logo"
+        	placement = "left"
+    	}
+	}
+
+
+	phone
+	{
+		customize
+		{
+        	layout = slidingpane
+		 	icons style = outline
+        	font = "default"
+            style = "1"
+        	color options
+        	{
+             	color = darkgrey
+         	}
+         	logo
+         	{
+             	preference = "company_logo"
+         	}
+		}
+	}
+	tablet
+	{
+		customize
+		{
+        	layout = slidingpane
+		 	icons style = outline
+        	font = "default"
+            style = "1"
+        	color options
+        	{
+             	color = darkgrey
+         	}
+         	logo
+         	{
+             	preference = "company_logo"
+         	}
+		}
+	}
+	
+}
